@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>    
+<style>
+     #startScreen {
+         position: absolute;
+         background-color: lightblue;
+         height: 90vmin;
+         width: 100vmin;
+         left: 5%;
+         top: 5%;   
+    }
+    
+    #instructions {
+        position: absolute;
+        background-color: whitesmoke;
+        color: black;
+        left: 10%;
+        top: 10%;
+        height: 35vmin;
+        width: 80vmin;
+        text-align: center;
+        font-size: 7vmin;
+        user-select: none;
+    }
+    
+    #startBTN {
+        position: absolute;
+        background-color: whitesmoke;
+        left: 10%;
+        top: 55%;
+        height: 10vmin;
+        width: 80vmin;
+        text-align: center;
+        font-size: 7vmin;
+        user-select: none;
+    }
+    
+    #workFlowScreenBTN {
+        position: absolute;
+        background-color: whitesmoke;
+        left: 10%;
+        top: 72%;
+        height: 7vmin;
+        width: 80vmin;
+        text-align: center;
+        font-size: 5vmin;
+        user-select: none;
+    }
+    
+    #workFlowScreen {
+        position: absolute;
+        background-image: url("UNADJUSTEDNONRAW_thumb_729.jpg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 90%;
+        width: 90%;
+        left: 5%;
+        top: 5%;   
+        display: none;
+    }
+    
+    #gameScreen {
+        position: absolute;
+        background-color: lightblue;
+        height: 90vmin;
+        width: 100vmin;
+        left: 5%;
+        top: 5%;  
+        display: none;
+        overflow: hidden;
+    }
+
+    #sun {
+        position: absolute;
+        background-color: darkorange;
+        border-radius: 50%;
+        height: 40vmin;
+        width: 40vmin;
+        left: -15vmin;
+        top: -15vmin;
+        
+        animation: loopSun 10s infinite;
+    }
+    
+    @keyframes loopSun {
+        0% {background-color: darkorange;}
+        50% {background-color: orange;}
+    }
+    
+    #dirtFore {
+        position: absolute;
+        background-color: #86592d;
+        width: 100vmin;
+        height: 15vmin;
+        top: 75vmin;
+        left: 0vmin;
+        border: 5px;
+        border-color: black;
+    }
+    
+    #dirtBack {
+        position: absolute;
+        background-color: #bf8040;
+        width: 100vmin;
+        height: 15vmin;
+        top: 65vmin;
+        left: 0vmin;
+    }
+    
+    #body {
+        position: absolute;
+        background-color: greenyellow;
+        clip-path: polygon(49% 49%, 82% 43%, 96% 54%, 100% 83%, 82% 100%, 50% 95%, 18% 100%, 3% 81%, 4% 55%, 18% 43%);
+        width: 10vmin;
+        height: 10vmin;
+        top: 67vmin;
+        left: 48vmin;
+    }
+    
+    #stem {
+        position: absolute;
+        background-color: saddlebrown;
+        clip-path: polygon(4% 34%, 30% 25%, 53% 44%, 64% 61%, 68% 100%, 37% 100%, 41% 64%, 28% 45%, 14% 48%, 3% 66%);
+        width: 7vmin;
+        height: 7vmin;
+        left: 49vmin; 
+        top: 65vmin;
+    }
+    
+    #bodyCan {
+        position: absolute;
+        background-color: mediumpurple;
+        clip-path: polygon(51% 13%, 74% 16%, 98% 24%, 71% 76%, 43% 49%, 26% 75%, 24% 89%, 5% 76%, 18% 69%, 33% 41%);
+        width: 20vmin;
+        height: 20vmin;
+        left: 48vmin;
+        top: 30vmin;
+    }
+    
+    #handle {
+        position: absolute;
+        background-color: mediumpurple;
+        clip-path: polygon(62% 37%, 71% 74%, 45% 100%, 33% 87%, 49% 69%, 46% 54%, 28% 55%, 12% 69%, 0 57%, 22% 35%);
+        width: 11vmin;
+        height: 11vmin;
+        left: 59vmin;
+        top: 26.5vmin;
+    }
+    
+    .material-icons {
+        font-size: 4vmin;
+        user-select: none;
+        position: absolute;
+        left: 95vmin;
+        top: 1vmin;
+    }
+    
+    #endScreen {
+        position: absolute;
+        background-color: lightblue;
+        height: 90vmin;
+        width: 100vmin;
+        left: 5%;
+        top: 5%;
+        display: none;
+    }
+    
+    #content {
+        position: absolute;
+        background-color: whitesmoke;
+        color: black;
+        left: 10%;
+        top: 10%;
+        height: 35vmin;
+        width: 80vmin;
+        text-align: center;
+        font-size: 7vmin;
+        user-select: none;
+    }
+    
+    #restart {
+        position: absolute;
+        background-color: whitesmoke;
+        left: 10%;
+        top: 55%;
+        height: 10vmin;
+        width: 80vmin;
+        text-align: center;
+        font-size: 7vmin;
+        user-select: none;
+    }
+    
+</style>
+<body>
+    
+<div id=startScreen>
+    <div id=startBTN>START</div>
+    <div id=instructions><b>Welcome!</b>
+    <br>Please click on the watering can to grow the pumpkin. Click the x to exit.</div>
+    <div id=workFlowScreenBTN> See Workflow</div>
+    
+</div>
+    
+<div id=workFlowScreen></div>    
+    
+<div id=gameScreen>
+    
+    <div id=dirtBack></div>
+    
+        <div id=pumpkin>
+            <div id=stem></div>
+            <div id=body></div>
+        </div>
+    
+        <div id=can>
+                <div id=bodyCan></div>
+                <div id=handle></div>
+        </div>
+    
+        <div id=dirtFore></div>
+
+    <div id=exit>
+        <i class="material-icons">
+           close
+        </i> 
+    </div>
+    
+    <div id=sun></div>
+    
+</div>
+    
+<div id=endScreen>
+    <div id=content>Thank you for playing!<br>Feel free to share this fun and easy game with a friend!</div>
+    <div id=restart>RESTART</div>
+</div>    
+
+<script>
+    var JstartScreen;
+    JstartScreen = document.querySelector("#startScreen");
+    
+    var JstartBTN;
+    JstartBTN = document.querySelector("#startBTN");
+    
+    JstartBTN.addEventListener("click", hideStartShowGame, false);
+    
+    var JworkFlowScreen;
+    JworkFlowScreen = document.querySelector("#workFlowScreen")
+    
+    var JWFScreenBTN;
+    JWFScreenBTN = document.querySelector("#workFlowScreenBTN");
+    
+    JWFScreenBTN.addEventListener("click", hideStartShowWF, false);
+    
+    var JgameScreen;
+    JgameScreen = document.querySelector("#gameScreen");
+    
+    var JPump;
+    JPump = document.querySelector("#pumpkin");
+       
+    var Jexit;
+    Jexit = document.querySelector("#exit");
+    
+    Jexit.addEventListener("click", hideGameShowEnd, false);
+    
+    var JendScreen;
+    JendScreen = document.querySelector("#endScreen");
+    
+    var Jrestart;
+    Jrestart = document.querySelector("#restart");
+    
+    Jrestart.addEventListener("click", restartTheGame, false);
+    
+    function hideStartShowGame() {
+        JstartScreen.style.display= "none";
+        JgameScreen.style.display= "block";
+    }   
+    
+    var Jcan;
+    JCan = document.querySelector("#can");
+    JCan.addEventListener("click", pumpkinChange, false);
+
+    var PumpScale= 0;
+    
+    function pumpkinChange() {
+        PumpScale = PumpScale - 20;
+        
+        JPump.style.transform= "translateY("+PumpScale+"%)"; 
+    }
+    
+    function hideStartShowWF() {
+        JstartScreen.style.display= "none";
+        JworkFlowScreen.style.display= "block";
+    }
+    
+    function hideGameShowEnd() {
+        JgameScreen.style.display= "none";
+        JendScreen.style.display= "block"; 
+    }
+    
+    function restartTheGame() {
+        JendScreen.style.display= "none"
+        JstartScreen.style.display= "block"
+    }
+    
+</script>    
+    
+    
+</body>
+</html>
